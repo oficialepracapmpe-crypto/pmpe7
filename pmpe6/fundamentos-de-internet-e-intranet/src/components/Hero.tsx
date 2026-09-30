@@ -19,13 +19,13 @@ export interface HeroData {
 
 export default function Hero({ data }: { data: HeroData }) {
   return (
-    <div id="inicio" className="relative min-h-[100svh] flex flex-col overflow-hidden">
+    <div id="inicio" className="hero-shell relative min-h-[100svh] flex flex-col overflow-hidden">
       {/* fundo: rede de pacotes */}
       <NetworkCanvas
         className="absolute inset-0 w-full h-full opacity-70"
         variant={data.palette}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0910]/60 via-transparent to-[#0a0910] pointer-events-none" />
+      <div className="hero-fade absolute inset-0 bg-gradient-to-b from-[#0a0910]/60 via-transparent to-[#0a0910] pointer-events-none" />
       <div
         className={`absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full blur-[120px] pointer-events-none ${
           data.palette === "cool"
@@ -104,11 +104,11 @@ export default function Hero({ data }: { data: HeroData }) {
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
             <a
-              href="#questoes"
+              href="#questao"
               className="inline-flex items-center gap-3 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-zinc-200 hover:border-yellow-300/60 hover:text-yellow-200 transition-colors"
             >
               <ListChecks size={16} />
-              Ir direto às questões
+              Ir direto à questão
             </a>
           </motion.div>
 
@@ -132,7 +132,7 @@ export default function Hero({ data }: { data: HeroData }) {
       </div>
 
       {/* marquee de termos mais cobrados */}
-      <div className="relative border-t border-b border-white/[0.07] bg-[#0d0c14]/80 backdrop-blur py-4 overflow-hidden">
+      <div className="term-marquee relative border-t border-b border-white/[0.07] bg-[#0d0c14]/80 backdrop-blur py-4 overflow-hidden">
         <p className="absolute left-5 sm:left-8 top-1/2 -translate-y-1/2 z-10 hidden md:block text-[10px] font-bold uppercase tracking-[0.22em] text-yellow-300 bg-[#0d0c14] pr-4">
           {data.termsLabel} →
         </p>
